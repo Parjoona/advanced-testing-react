@@ -1,12 +1,17 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+
 import App from '../App'
+import Box from '../Box/Box'
+import List from '../List/List'
 
-it('Should render application', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<App />, div)
+import { shallow } from 'enzyme'
 
-  expect(div.innerHTML).toContain('Box')
+it('Should render the correct amount of Boxes', () => {
+  const wrapper = shallow(<App />)
+  expect(wrapper.find(Box).length).toEqual(1)
+})
 
-  ReactDOM.unmountComponentAtNode(div)
+it('Should render one list', () => {
+  const wrapper = shallow(<App/>)
+  expect(wrapper.find(List).length).toEqual(1)
 })
