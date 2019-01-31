@@ -1,6 +1,6 @@
 import React from 'react';
-import Box from './Box/Box'
-import List from './List/List'
+import Box from 'Components/Box/Box'
+import List from 'Components/List/List'
 
 const App = () => (
   <div className="App">
