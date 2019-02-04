@@ -13,25 +13,26 @@ it('Should have a textarea and a button', () => {
   expect(wrapper.find('button').length).toEqual(1)
 })
 
-it('Should have a textarea that users can edit input in', () => {
-  wrapper
-    .find('textarea')
-    .simulate('change', {
-      target: { value: 'New Comment' }
+describe('Text area tests', () => {
+  beforeEach(() => {
+    wrapper
+      .find('textarea')
+      .simulate('change', {
+        target: { value: 'New Comment' }
+    })
+    wrapper
+      .update()
   })
-  wrapper.update()
 
-  expect(wrapper.find('textarea').prop('value')).toEqual('New Comment')
-})
+  it('Should have a textarea that users can edit input in', () => {
 
-it('Should submit textarea and empty its value', () => {
-  wrapper
-    .find('textarea')
-    .simulate('change', {
-      target: { value: 'New Comment' }
+  
+    expect(wrapper.find('textarea').prop('value')).toEqual('New Comment')
   })
-  wrapper.update()
-  wrapper.find('form').simulate('submit')
-  wrapper.update()
-  expect(wrapper.find('textarea').prop('value')).toEqual('')
+  
+  it('Should submit textarea and empty its value', () => {
+    wrapper.find('form').simulate('submit')
+    wrapper.update()
+    expect(wrapper.find('textarea').prop('value')).toEqual('')
+  })
 })
