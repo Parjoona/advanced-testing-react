@@ -2,10 +2,11 @@ import React from 'react'
 import { mount } from 'enzyme'
 
 import Box from 'Components/Box/Box'
+import Store from 'Store'
 
 let wrapper
 
-beforeEach(() => wrapper = mount(<Box />))
+beforeEach(() => wrapper = mount(<Store><Box /></Store>))
 afterEach(() => wrapper.unmount())
 
 it('Should have a textarea and a button', () => {
