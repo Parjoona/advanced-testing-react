@@ -5,12 +5,10 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducers from 'Redux/Reducers'
 
-const store = createStore(reducers, {})
-
-export default (props) => {
+export default ({ children, initialState = {} }) => {
   return (
-    <Provider store={store}>
-      {props.children}
+    <Provider store={createStore(reducers, initialState)}>
+      {children}
     </Provider>
   )
 }
