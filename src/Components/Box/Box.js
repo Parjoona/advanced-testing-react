@@ -20,6 +20,7 @@ class Box extends Component {
 
   render() {
     return (
+      <div>
       <form onSubmit={this.handleSubmit}>
         <h4>Add Comment</h4>
         <textarea value={this.state.comment} onChange={this.textareaChange}/>
@@ -27,6 +28,8 @@ class Box extends Component {
           <button>Submit me</button>
         </div>
       </form>
+        <button className="fetch-btn" onClick={this.props.fetchComments}>Fetch comments</button>
+      </div>
     )
   }
 }

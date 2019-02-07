@@ -9,9 +9,9 @@ let wrapper
 beforeEach(() => wrapper = mount(<Store><Box /></Store>))
 afterEach(() => wrapper.unmount())
 
-it('Should have a textarea and a button', () => {
+it('Should have a textarea and two buttons', () => {
   expect(wrapper.find('textarea').length).toEqual(1)
-  expect(wrapper.find('button').length).toEqual(1)
+  expect(wrapper.find('button').length).toEqual(2)
 })
 
 describe('Text area tests', () => {
