@@ -1,4 +1,5 @@
-import { SAVE_COMMENT } from 'Redux/Actions/types'
+import axios from 'axios'
+import { SAVE_COMMENT, FETCH_COMMENTS } from 'Redux/Actions/types'
 
 export const saveComment = (comment) => {
   return {
@@ -6,3 +7,12 @@ export const saveComment = (comment) => {
     payload: comment
   }
 } 
+
+export const fetchComments = () => {
+  const response = axios.get('http://jsonplaceholder.typicode.com/comments')
+
+  return {
+    type: FETCH_COMMENTS,
+    payload: response
+  }
+}

@@ -5,8 +5,8 @@ import List from 'Components/List/List'
 const App = () => (
   <div className="App">
     Hello React
-    <List/>
     <Box/>
+    <List/>
   </div>
 )
 
