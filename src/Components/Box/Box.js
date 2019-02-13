@@ -22,7 +22,7 @@ class Box extends Component {
     return (
       <div>
       <form onSubmit={this.handleSubmit}>
-        <h4>Add Comment</h4>
+        <h3>Add Comment</h3>
         <textarea value={this.state.comment} onChange={this.textareaChange}/>
         <div>
           <button>Submit me</button>

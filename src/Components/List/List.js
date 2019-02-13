@@ -2,17 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
 class List extends Component {
-  renderComments = () => {
-    return this.props.comments.map((comment, i) => {
-      return <li key={i}>{comment}</li>
-    })
-  }
-
   render() {
     return (
       <div>
+        <h3>Comments</h3>
         <ul>
-          {this.renderComments()}
+          {this.props.comments.map((comment, i) => {
+            return <li key={i}>{comment}</li>
+          })}
         </ul>
       </div>
     )
