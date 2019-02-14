@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import requireAuth from 'Components/requireAuth'
 import * as actions from 'Redux/Actions'
 
 class Box extends Component {
@@ -34,4 +35,4 @@ class Box extends Component {
   }
 }
 
-export default connect(undefined, actions)(Box)
+export default connect(undefined, actions)(requireAuth(Box))
