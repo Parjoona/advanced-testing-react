@@ -10,9 +10,11 @@ class Header extends Component {
         <li>
           <Link to='/'>Home</Link>
         </li>
-        <li>
-          <Link to='/post'>Post</Link>
-        </li>
+        {this.props.auth && 
+          <li>
+            <Link to='/post'>Post</Link>
+          </li>
+        }
         <li>
           <Link to="/comments">Comments</Link>
         </li>
