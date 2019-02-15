@@ -7,9 +7,10 @@ import reducers from 'Redux/Reducers'
 
 // Middleware
 import async from 'Middlewares/async'
+import stateValidator from 'Middlewares/stateValidator'
 
 export default ({ children, initialState = {} }) => {
-  const store = createStore(reducers, initialState, applyMiddleware(async))
+  const store = createStore(reducers, initialState, applyMiddleware(async, stateValidator))
   
   return (
     <Provider store={store}>
