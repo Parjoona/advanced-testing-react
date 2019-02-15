@@ -6,10 +6,10 @@ import { createStore, applyMiddleware } from 'redux'
 import reducers from 'Redux/Reducers'
 
 // Middleware
-import reduxPromise from 'redux-promise'
+import async from 'Middlewares/async'
 
 export default ({ children, initialState = {} }) => {
-  const store = createStore(reducers, initialState, applyMiddleware(reduxPromise))
+  const store = createStore(reducers, initialState, applyMiddleware(async))
   
   return (
     <Provider store={store}>
