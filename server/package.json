@@ -4,12 +4,15 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongoose": "^5.4.13",
     "morgan": "^1.9.1"
   },
   "scripts": {
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "mongodb": "sudo systemctl start mongodb",
+    "mongodb:status": "sudo systemctl status mongodb"
   }
 }
