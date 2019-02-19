@@ -12,12 +12,12 @@ const userSchema = new Schema({
 })
 
 // When saving
-userSchema.pre('save', (next) => {
+userSchema.pre('save', function(next) {
   const user = this
-  bcrypt.genSalt(10, (err, salt) => {
+  bcrypt.genSalt(10, function(err, salt) {
     if (err) return next(err)
 
-    bcrypt.hash(user.password, salt, null, (err, hash) => {
+    bcrypt.hash(user.password, salt, null, function(err, hash) {
       if (err) return next(err)
 
       user.password = hash
@@ -27,11 +27,11 @@ userSchema.pre('save', (next) => {
 })
 
 // our User model gets a method called comparePassword
-userSchema.methods.comparePassword = (canidatePassword, cb) => {
+userSchema.methods.comparePassword = function(canidatePassword, cb) {
   // Behind the scenes compare
-  bcrypt.compare(canidatePassword, this.password, (err, match) => {
+  bcrypt.compare(canidatePassword, this.password, function(err, match) {
+    console.log(err)
     if (err) return cb(err)
-
     // if match is true, user is accepted
     cb(null, match)
   })
