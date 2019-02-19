@@ -26,6 +26,17 @@ userSchema.pre('save', (next) => {
   })
 })
 
+// our User model gets a method called comparePassword
+userSchema.methods.comparePassword = (canidatePassword, cb) => {
+  // Behind the scenes compare
+  bcrypt.compare(canidatePassword, this.password, (err, match) => {
+    if (err) return cb(err)
+
+    // if match is true, user is accepted
+    cb(null, match)
+  })
+}
+
 const model = mongoose.model('user', userSchema)
 
 module.exports = model
